@@ -1,0 +1,594 @@
+[
+  {
+    "name": "Ornn",
+    "origine": "Tempest Bruiser Legend",
+    "id": 49,
+    "cost": 4,
+    "image": { "Ornn": "Ornn.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+
+  },
+  {
+    "name": "Aatrox",
+    "origine": "Shimmerscale Warrior",
+    "id": 1,
+    "cost": 1,
+    "image": { "Aatrox": "Aatrox.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Ezreal",
+    "origine": "Swiftshot Tempest",
+    "id": 2,
+    "cost": 1,
+    "image": { "Ezreal": "Ezreal.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Sejuani",
+    "origine": "Guild Cavalier",
+    "id": 3,
+    "cost": 1,
+    "image": { "Sejuani": "Sejuani.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "TahmKench",
+    "origine": "Revel Bruiser",
+    "id": 4,
+    "cost": 1,
+    "image": { "TahmKench": "TahmKench.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Heimerdinger",
+    "origine": "Trainer Mage",
+    "id": 5,
+    "cost": 1,
+    "image": { "Heimerdinger": "Heimerdinger.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Karma",
+    "origine": "Dragonmancerne Jade",
+    "id": 6,
+    "cost": 1,
+    "image": { "Karma": "Karma.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Senna",
+    "origine": "Ragewing Cannoneer",
+    "id": 7,
+    "cost": 1,
+    "image": { "Senna": "Senna.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Leona",
+    "origine": "Mirage Guardian",
+    "id": 8,
+    "cost": 1,
+    "image": { "Leona": "Leona.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Nami",
+    "origine": "Astrale Mage Mystic",
+    "id": 9,
+    "cost": 2,
+    "image": { "Nami": "Nami.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Vladimir",
+    "origine": "Astral Mage",
+    "id": 10,
+    "cost": 1,
+    "image": { "Vladimir": "Vladimir.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Sett",
+    "origine": "Ragewing Dragonmancer",
+    "id": 11,
+    "cost": 1,
+    "image": { "Sett": "Sett.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Skarner",
+    "origine": "Astral Bruiser",
+    "id": 12,
+    "cost": 1,
+    "image": { "Skarner": "Skarner.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Taric",
+    "origine": "Jade Guardian",
+    "id": 58,
+    "cost": 1,
+    "image": { "Taric": "Taric.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Nidalee",
+    "origine": "Astrale Shapeshifter",
+    "id": 13,
+    "cost": 1,
+    "image": { "Nidalee": "Nidalee.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Ashe",
+    "origine": "Jade, Dragonmancerne, Tireuse d'élite",
+    "id": 14,
+    "cost": 2,
+    "image": { "Ashe": "Ashe.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Braum",
+    "origine": "Scalescorn Gardien",
+    "id": 15,
+    "cost": 2,
+    "image": { "Braum": "Braum.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Yone",
+    "origine": "Mirage Warrior",
+    "id": 16,
+    "cost": 2,
+    "image": { "Yone": "Yone.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Twitch",
+    "origine": "Guild Swiftshot",
+    "id": 17,
+    "cost": 2,
+    "image": { "Twitch": "Twitch.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Gnar",
+    "origine": "Shapeshifter Jade",
+    "id": 18,
+    "cost": 2,
+    "image": { "Gnar": "Gnar.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Jinx",
+    "origine": "Revel Cannoneer",
+    "id": 19,
+    "cost": 2,
+    "image": { "Jinx": "Jinx.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Kayn",
+    "origine": "Ragewing Shimmerscale Assassin",
+    "id": 20,
+    "cost": 2,
+    "image": { "Kayn": "Kayn.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Lillia",
+    "origine": "Scalescorn Cavalier Mage",
+    "id": 21,
+    "cost": 2,
+    "image": { "Lillia": "Lillia.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Thresh",
+    "origine": "Whispers Gardien",
+    "id": 23,
+    "cost": 2,
+    "image": { "Thresh": "Thresh.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Tristana",
+    "origine": "Trainer Cannoneer",
+    "id": 24,
+    "cost": 2,
+    "image": { "Tristana": "Tristana.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Shen",
+    "origine": "Ragewing Bruiser Warrior",
+    "id": 25,
+    "cost": 2,
+    "image": { "Shen": "Shen.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Qiyana",
+    "origine": "Tempest Assassin",
+    "id": 26,
+    "cost": 2,
+    "image": { "Qiyana": "Qiyana.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Illaoi",
+    "origine": "Astrale Bruisere",
+    "id": 27,
+    "cost": 3,
+    "image": { "Illaoi": "Illaoi.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Lulu",
+    "origine": "Mystic Evoker Trainer",
+    "id": 28,
+    "cost": 3,
+    "image": { "Lulu": "Lulu.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Swain",
+    "origine": "Shapeshifter Ragewing Dragonmancer",
+    "id": 29,
+    "cost": 3,
+    "image": { "Swain": "Swain.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Anivia",
+    "origine": "Jade Evoker Legend",
+    "id": 30,
+    "cost": 3,
+    "image": { "Anivia": "Anivia.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Diana",
+    "origine": "Scalescorn Assassin",
+    "id": 31,
+    "cost": 3,
+    "image": { "Diana": "Diana.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Elise",
+    "origine": "Shapeshifter Wisper",
+    "id": 32,
+    "cost": 3,
+    "image": { "Elise": "Elise.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "LeeSin",
+    "origine": "Tempest Dragonmancer",
+    "id": 33,
+    "cost": 3,
+    "image": { "LeeSin": "LeeSin.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Nunu",
+    "origine": "Mirage Cavalier",
+    "id": 34,
+    "cost": 3,
+    "image": { "Nunu": "Nunu.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Olaf",
+    "origine": "Scalescorn Bruiser Warrior",
+    "id": 35,
+    "cost": 3,
+    "image": { "Olaf": "Olaf.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Ryze",
+    "origine": "Guild Mage",
+    "id": 36,
+    "cost": 3,
+    "image": { "Ryze": "Ryze.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Sylas",
+    "origine": "Whispers Mage Bruiser",
+    "id": 37,
+    "cost": 3,
+    "image": { "Sylas": "Sylas.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Varus",
+    "origine": "Astral Swiftshot",
+    "id": 38,
+    "cost": 3,
+    "image": { "Varus": "Varus.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Volibear",
+    "origine": "Shimmerscale Dragonmancer Legend",
+    "id": 39,
+    "cost": 3,
+    "image": { "Volibear": "Volibear.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Daeja",
+    "origine": "Dragon Mirage",
+    "id": 40,
+    "cost": 4,
+    "image": { "Daeja": "Daeja.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Idas",
+    "origine": "Dragon Shimmerscale Gardien",
+    "id": 41,
+    "cost": 8,
+    "image": { "Idas": "Idas.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "SyFen",
+    "origine": "Dragon Whispers Bruiser",
+    "id": 42,
+    "cost": 4,
+    "image": { "SyFen": "SyFen.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "ShiOhYu",
+    "origine": "Dragon Jade Mystic",
+    "id": 43,
+    "cost": 8,
+    "image": { "ShiOhYu": "ShiOhYu.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Corki",
+    "origine": "Revel Cannoneer",
+    "id": 44,
+    "cost": 4,
+    "image": { "Corki": "Corki.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Talon",
+    "origine": "Guild Assassin",
+    "id": 45,
+    "cost": 4,
+    "image": { "Talon": "Talon.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Hecarim",
+    "origine": "Ragewing Cavalier",
+    "id": 46,
+    "cost": 4,
+    "image": { "Hecarim": "Hecarim.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Neeko",
+    "origine": "Shapeshifter Jade",
+    "id": 47,
+    "cost": 4,
+    "image": { "Neeko": "Neeko.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Sona",
+    "origine": "Revel Evoker",
+    "id": 48,
+    "cost": 4,
+    "image": { "Sona": "Sona.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+
+  {
+    "name": "Xayah",
+    "origine": "Ragewing Swiftshot",
+    "id": 58,
+    "cost": 4,
+    "image": { "Xayah": "Xayah.png" },
+    "itemsA": [20, 10, 39, 23, 16, 33],
+    "itemsB": [36, 21, 26],
+    "itemsC": [13, 4, 22]
+  },
+  {
+    "name": "AoShin",
+    "origine": "Dragon Tempest",
+    "id": 50,
+    "cost": 10,
+    "image": { "AoShin": "AoShin.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "AurelionSol",
+    "origine": "Dragon Astral Evoker",
+    "id": 51,
+    "cost": 10,
+    "image": { "AurelionSol": "AurelionSol.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Shyvana",
+    "origine": "Dragon Ragewing Shapeshifter",
+    "id": 52,
+    "cost": 10,
+    "image": { "Shyvana": "Shyvana.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Bard",
+    "origine": "Bard Guild Mystic",
+    "id": 53,
+    "cost": 5,
+    "image": { "Bard": "Bard.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Yasuo",
+    "origine": "Mirage Dragonmancer Warrior",
+    "id": 54,
+    "cost": 5,
+    "image": { "Yasuo": "Yasuo.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Zoé",
+    "origine": "Shimmerscale Mage Spell Thief",
+    "id": 55,
+    "cost": 5,
+    "image": { "Zoé": "Zoé.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Pyke",
+    "origine": "Whispers Assassin",
+    "id": 56,
+    "cost": 5,
+    "image": { "Pyke": "Pyke.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Soraka",
+    "origine": "Jade Starcaller",
+    "id": 57,
+    "cost": 5,
+    "image": { "Soraka": "Soraka.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  },
+  {
+    "name": "Daeja",
+    "origine": "Mirage Dragon",
+    "id": 59,
+    "cost": 8,
+    "image": { "Daeja": "Daeja.png" },
+    "itemsA": [],
+    "itemsB": [],
+    "itemsC": []
+  }
+]

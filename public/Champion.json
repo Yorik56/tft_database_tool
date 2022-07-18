@@ -1,0 +1,277 @@
+[
+  {
+    "id": 0,
+    "name": "archangels staff",
+    "image": "archangels-staff.png"
+  },
+  {
+    "id": 1,
+    "name": "assassin emblem",
+    "image": "assassin-emblem.png"
+  },
+  {
+    "id": 2,
+    "name": "banshees claw",
+    "image": "banshees-claw.png"
+  },
+  {
+    "id": 3,
+    "name": "bf sword",
+    "image": "bf-sword.png"
+  },
+  {
+    "id": 4,
+    "name": "Bloodthirster",
+    "image": "Bloodthirster.png"
+  },
+  {
+    "id": 5,
+    "name": "blue buff",
+    "image": "blue-buff.png"
+  },
+  {
+    "id": 6,
+    "name": "bramble vest",
+    "image": "bramble-vest.png"
+  },
+  {
+    "id": 7,
+    "name": "cavalier emblem",
+    "image": "cavalier-emblem.png"
+  },
+  {
+    "id": 8,
+    "name": "chain vest",
+    "image": "chain-vest.png"
+  },
+  {
+    "id": 9,
+    "name": "chalice of power",
+    "image": "chalice-of-power.png"
+  },
+  {
+    "id": 10,
+    "name": "deathblade",
+    "image": "deathblade.png"
+  },
+  {
+    "id": 11,
+    "name": "dragonmancer emblem",
+    "image": "dragonmancer-emblem.png"
+  },
+  {
+    "id": 12,
+    "name": "dragons claw",
+    "image": "dragons-claw.png"
+  },
+  {
+    "id": 13,
+    "name": "edge of night",
+    "image": "edge-of-night.png"
+  },
+  {
+    "id": 14,
+    "name": "frozen heart",
+    "image": "frozen-heart.png"
+  },
+  {
+    "id": 15,
+    "name": "gargoyle stoneplate",
+    "image": "gargoyle-stoneplate.png"
+  },
+  {
+    "id": 16,
+    "name": "giant slayer",
+    "image": "giant-slayer.png"
+  },
+  {
+    "id": 17,
+    "name": "giants belt",
+    "image": "giants-belt.png"
+  },
+  {
+    "id": 18,
+    "name": "guardian emblem",
+    "image": "guardian-emblem.png"
+  },
+  {
+    "id": 19,
+    "name": "guinsoos rageblade",
+    "image": "guinsoos-rageblade.png"
+  },
+  {
+    "id": 20,
+    "name": "GuinsoosRageblade",
+    "image": "GuinsoosRageblade.png"
+  },
+  {
+    "id": 21,
+    "name": "hand of justice",
+    "image": "hand-of-justice.png"
+  },
+  {
+    "id": 22,
+    "name": "hextech gunblade",
+    "image": "hextech-gunblade.png"
+  },
+  {
+    "id": 23,
+    "name": "infinity edge",
+    "image": "infinity-edge.png"
+  },
+  {
+    "id": 24,
+    "name": "ionic spark",
+    "image": "ionic-spark.png"
+  },
+  {
+    "id": 25,
+    "name": "jeweled gauntlet",
+    "image": "jeweled-gauntlet.png"
+  },
+  {
+    "id": 26,
+    "name": "last whisper",
+    "image": "last-whisper.png"
+  },
+  {
+    "id": 27,
+    "name": "locket of the iron solari",
+    "image": "locket-of-the-iron-solari.png"
+  },
+  {
+    "id": 28,
+    "name": "mage emblem",
+    "image": "mage-emblem.png"
+  },
+  {
+    "id": 29,
+    "name": "mirage emblem",
+    "image": "mirage-emblem.png"
+  },
+  {
+    "id": 30,
+    "name": "morellonomicon",
+    "image": "morellonomicon.png"
+  },
+  {
+    "id": 31,
+    "name": "needlessly large rod",
+    "image": "needlessly-large-rod.png"
+  },
+  {
+    "id": 32,
+    "name": "negatron cloak",
+    "image": "negatron-cloak.png"
+  },
+  {
+    "id": 33,
+    "name": "Quicksilver",
+    "image": "Quicksilver.png"
+  },
+  {
+    "id": 34,
+    "name": "rabadons deathcap",
+    "image": "rabadons-deathcap.png"
+  },
+  {
+    "id": 35,
+    "name": "ragewing emblem",
+    "image": "ragewing-emblem.png"
+  },
+  {
+    "id": 36,
+    "name": "rapid firecannon",
+    "image": "rapid-firecannon.png"
+  },
+  {
+    "id": 37,
+    "name": "recurve bow",
+    "image": "recurve-bow.png"
+  },
+  {
+    "id": 38,
+    "name": "redemption",
+    "image": "redemption.png"
+  },
+  {
+    "id": 39,
+    "name": "runaans hurricane",
+    "image": "runaans-hurricane.png"
+  },
+  {
+    "id": 40,
+    "name": "shimmerscale emblem",
+    "image": "shimmerscale-emblem.png"
+  },
+  {
+    "id": 41,
+    "name": "shroud of stillness",
+    "image": "shroud-of-stillness.png"
+  },
+  {
+    "id": 42,
+    "name": "sparring gloves",
+    "image": "sparring-gloves.png"
+  },
+  {
+    "id": 43,
+    "name": "spatula",
+    "image": "spatula.png"
+  },
+  {
+    "id": 44,
+    "name": "spear of shojin",
+    "image": "spear-of-shojin.png"
+  },
+  {
+    "id": 45,
+    "name": "statikk shiv",
+    "image": "statikk-shiv.png"
+  },
+  {
+    "id": 46,
+    "name": "sunfire cape",
+    "image": "sunfire-cape.png"
+  },
+  {
+    "id": 47,
+    "name": "tacticians crown",
+    "image": "tacticians-crown.png"
+  },
+  {
+    "id": 48,
+    "name": "tear of the goddess",
+    "image": "tear-of-the-goddess.png"
+  },
+  {
+    "id": 49,
+    "name": "thiefs gloves",
+    "image": "thiefs-gloves.png"
+  },
+  {
+    "id": 50,
+    "name": "titans resolve",
+    "image": "titans-resolve.png"
+  },
+  {
+    "id": 51,
+    "name": "warmogs armor",
+    "image": "warmogs-armor.png"
+  },
+  {
+    "id": 52,
+    "name": "zekes herald",
+    "image": "zekes-herald.png"
+  },
+  {
+    "id": 53,
+    "name": "zephyr",
+    "image": "zephyr.png"
+  },
+  {
+    "id": 54,
+    "name": "zzrot portal",
+    "image": "zzrot-portal.png"
+  }
+]
