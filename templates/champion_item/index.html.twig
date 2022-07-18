@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChampionItem index{% endblock %}
+
+{% block body %}
+    <h1>ChampionItem index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Champion</th>
+                <th>Item</th>
+                <th>Rank</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for champion_item in champion_items %}
+            <tr>
+                <td>{{ champion_item.id }}</td>
+                <td>
+                    <img src="{{ asset('/images/Champion/'~champion_item.champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion_item.champion.image }}"/>
+                    {{ champion_item.champion.name }}
+                </td>
+                <td>
+                    <img src="{{ asset('/images/Item/'~champion_item.item.image) | imagine_filter('my_thumb') }}" alt="{{ champion_item.item.image }}"/>
+                    {{ champion_item.item.name }}
+                </td>
+                <td>{{ champion_item.rank }}</td>
+                <td>
+                    <a href="{{ path('app_champion_item_show', {'id': champion_item.id}) }}">show</a>
+                    <a href="{{ path('app_champion_item_edit', {'id': champion_item.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_champion_item_new') }}">Create new</a>
+{% endblock %}

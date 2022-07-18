@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ChampionItem{% endblock %}
+
+{% block body %}
+    <h1>Create new ChampionItem</h1>
+
+    {{ include('champion_item/_form.html.twig') }}
+
+    <a href="{{ path('app_champion_item_index') }}">back to list</a>
+{% endblock %}
