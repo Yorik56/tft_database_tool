@@ -6,8 +6,19 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import 'bootstrap/dist/css/bootstrap.css'
-import './styles/app.css';
 
-// start the Stimulus application
-import './bootstrap';
+// CSS
+import 'bootstrap/dist/css/bootstrap.css'
+import './styles/app.scss';
+import './styles/sidenav.scss';
+
+// JS
+const $ = require('jquery');
+global.$ = global.jQuery = $;
+
+require('bootstrap')
+
+
+
+
+

@@ -3,7 +3,7 @@
 {% block title %}ChampionItem index{% endblock %}
 
 {% block body %}
-    <h1>ChampionItem index</h1>
+    <h1 class="text-center">ChampionItem index</h1>
 
     <table class="table">
         <thead>
@@ -29,8 +29,8 @@
                 </td>
                 <td>{{ champion_item.rank }}</td>
                 <td>
-                    <a href="{{ path('app_champion_item_show', {'id': champion_item.id}) }}">show</a>
-                    <a href="{{ path('app_champion_item_edit', {'id': champion_item.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('app_champion_item_show', {'id': champion_item.id}) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('app_champion_item_edit', {'id': champion_item.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_champion_item_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('app_champion_item_new') }}">Create new</a>
 {% endblock %}
