@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ChampionItem;
 use App\Form\ChampionItemType;
 use App\Repository\ChampionItemRepository;
+use App\Repository\ChampionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,11 +22,41 @@ class ChampionItemController extends AbstractController
         ]);
     }
 
+    #[Route('/indexChamp/{id}', name: 'app_champion_item_index_champ', methods: ['GET'])]
+    public function indexChamp(Request $request,ChampionItemRepository $championItemRepository): Response
+    {
+        return $this->render('champion_item/index.html.twig', [
+            'champion_items' => $championItemRepository->findBy([
+                'champion' => $request->get('id')
+            ]),
+        ]);
+    }
+
     #[Route('/new', name: 'app_champion_item_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ChampionItemRepository $championItemRepository): Response
     {
         $championItem = new ChampionItem();
         $form = $this->createForm(ChampionItemType::class, $championItem);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $championItemRepository->add($championItem, true);
+
+            return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('champion_item/new.html.twig', [
+            'champion_item' => $championItem,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/newByChamp/{id}', name: 'app_champion_item_new_by_champ', methods: ['GET', 'POST'])]
+    public function newByChamp(Request $request, ChampionItemRepository $championItemRepository, ChampionRepository $championRepository): Response
+    {
+        $championItem = new ChampionItem();
+        $form = $this->createForm(ChampionItemType::class, $championItem);
+        $form->get('champion')->setData($championRepository->find($request->get('id')));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\ChampionItem;
+use App\Entity\Item;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,7 +15,9 @@ class ChampionItemType extends AbstractType
         $builder
             ->add('rank')
             ->add('champion')
-            ->add('item')
+            ->add('item', Item::class, [
+                'multiple' => true
+            ])
         ;
     }
 
