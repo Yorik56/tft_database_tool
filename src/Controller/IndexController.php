@@ -42,4 +42,26 @@ class IndexController extends AbstractController
             'champions' => $champions
         ]);
     }
+
+    /**
+     * Export all items from the database to a json file
+     * @return Response
+     */
+    #[Route('/export_items', name: 'export_items')]
+    public function exportItems()
+    {
+        $this->utils->exportJsonFromDbItems();
+        return new Response('Items exported');
+    }
+
+    /**
+     * Export all items from the database to a json file
+     * @return Response
+     */
+    #[Route('/export_champions', name: 'export_champions')]
+    public function export_champions()
+    {
+        $this->utils->exportJsonFromDbChampions();
+        return new Response('Champions exported');
+    }
 }

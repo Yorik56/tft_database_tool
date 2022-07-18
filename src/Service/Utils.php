@@ -45,4 +45,54 @@ class Utils
         }
         $this->entityManager->flush();
     }
+
+    function exportJsonFromDbItems(){
+        $items = $this->entityManager->getRepository(Item::class)->findAll();
+        $data = [];
+        foreach ($items as $key => $value) {
+            $data[] = [
+                'id' => $value->getId(),
+                'name' => $value->getName(),
+                'image' => "require('../../assets/images/Item/" . $value->getImage() . ".png')",
+            ];
+        }
+
+        $projectDir = $this->appKernel->getProjectDir();
+        $file = $projectDir . '/public/export_item.json';
+        $jsonData = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        file_put_contents($file, $jsonData);
+    }
+
+    function exportJsonFromDbChampions(){
+        $champions = $this->entityManager->getRepository(Champion::class)->findAll();
+        $data = [];
+        foreach ($champions as $key => $value) {
+            // Création du champion
+            $data[] = [
+                'name' => $value->getName(),
+                'origine' => $value->getOrigine(),
+                'id' => $value->getId(),
+                'cost' => $value->getCost(),
+                'image' => "require('../../assets/images/Champion/" . $value->getImage() . "')",
+                'itemsA' => [],
+                'itemsB' => [],
+                'itemsC' => []
+            ];
+            // Ajout des items du champion
+            foreach ($value->getChampionItems() as $key => $item) {
+                if($item->getRank() == 'A'){
+                    $data[count($data) - 1]['itemsA'][] = $item->getItem()->getId();
+                }elseif($item->getRank() == 'B'){
+                    $data[count($data) - 1]['itemsB'][] = $item->getItem()->getId();
+                }elseif($item->getRank() == 'C'){
+                    $data[count($data) - 1]['itemsC'][] = $item->getItem()->getId();
+                }
+            }
+        }
+
+        $projectDir = $this->appKernel->getProjectDir();
+        $file = $projectDir . '/public/export_champion.json';
+        $jsonData = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        file_put_contents($file, $jsonData);
+    }
 }
