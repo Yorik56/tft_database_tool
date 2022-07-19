@@ -8,6 +8,7 @@ use App\Entity\Item;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +17,15 @@ class ChampionItemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('rank')
+            ->add('rank',ChoiceType::class,[
+                'choices' => [
+                    'A' => "A",
+                    'B' => "B",
+                    'C' => "C"
+                ],
+                'label' => 'Rank',
+                'required' => true,
+            ])
             ->add('champion', EntityType::class, [
                 'class' => Champion::class,
                 'choice_label' => 'name',
