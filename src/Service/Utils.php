@@ -84,17 +84,17 @@ class Utils
                 if($items->getRank() == 'A'){
                     $championItemPosition = $this->entityManager->getRepository(ChampionItemPosition::class)->findBy(['championItem' => $items], ['position' => 'ASC']);
                     foreach ($championItemPosition as $item) {
-                        $data[count($data)-1]['itemsA'][] = $item->getItem()->getId();
+                        $data[count($data)-1]['itemsA'][] = $item->getItem()->getId() - 1;
                     }
                 }elseif($items->getRank() == 'B'){
                     $championItemPosition = $this->entityManager->getRepository(ChampionItemPosition::class)->findBy(['championItem' => $items], ['position' => 'ASC']);
                     foreach ($championItemPosition as $item) {
-                        $data[count($data)-1]['itemsB'][] = $item->getItem()->getId();
+                        $data[count($data)-1]['itemsB'][] = $item->getItem()->getId() - 1;
                     }
                 }elseif($items->getRank() == 'C'){
                     $championItemPosition = $this->entityManager->getRepository(ChampionItemPosition::class)->findBy(['championItem' => $items], ['position' => 'ASC']);
                     foreach ($championItemPosition as $item) {
-                        $data[count($data)-1]['itemsC'][] = $item->getItem()->getId();
+                        $data[count($data)-1]['itemsC'][] = $item->getItem()->getId() - 1;
                     }
                 }
             }
