@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 18 juil. 2022 à 19:36
+-- Généré le : mar. 19 juil. 2022 à 21:52
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.11
 
@@ -109,7 +109,6 @@ INSERT INTO `champion` (`id`, `name`, `origine`, `cost`, `image`) VALUES
 CREATE TABLE `champion_item` (
   `id` int(11) NOT NULL,
   `champion_id` int(11) DEFAULT NULL,
-  `item_id` int(11) DEFAULT NULL,
   `rank` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -117,9 +116,50 @@ CREATE TABLE `champion_item` (
 -- Déchargement des données de la table `champion_item`
 --
 
-INSERT INTO `champion_item` (`id`, `champion_id`, `item_id`, `rank`) VALUES
-(1, 1, 1, 'A'),
-(3, 1, 25, 'B');
+INSERT INTO `champion_item` (`id`, `champion_id`, `rank`) VALUES
+(18, 1, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `champion_item_item`
+--
+
+CREATE TABLE `champion_item_item` (
+  `champion_item_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `champion_item_item`
+--
+
+INSERT INTO `champion_item_item` (`champion_item_id`, `item_id`) VALUES
+(18, 1),
+(18, 8),
+(18, 55);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `champion_item_position`
+--
+
+CREATE TABLE `champion_item_position` (
+  `id` int(11) NOT NULL,
+  `champion_item_id` int(11) NOT NULL,
+  `position` smallint(6) NOT NULL,
+  `item_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `champion_item_position`
+--
+
+INSERT INTO `champion_item_position` (`id`, `champion_item_id`, `position`, `item_id`) VALUES
+(16, 18, 0, 55),
+(17, 18, 1, 1),
+(18, 18, 2, 8);
 
 -- --------------------------------------------------------
 
@@ -140,7 +180,10 @@ CREATE TABLE `doctrine_migration_versions` (
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 ('DoctrineMigrations\\Version20220717233431', '2022-07-18 01:34:44', 811),
 ('DoctrineMigrations\\Version20220717233738', '2022-07-18 01:37:43', 81),
-('DoctrineMigrations\\Version20220717235215', '2022-07-18 01:52:21', 397);
+('DoctrineMigrations\\Version20220717235215', '2022-07-18 01:52:21', 397),
+('DoctrineMigrations\\Version20220718215142', '2022-07-18 23:51:53', 464),
+('DoctrineMigrations\\Version20220719182715', '2022-07-19 20:27:32', 635),
+('DoctrineMigrations\\Version20220719184756', '2022-07-19 20:48:07', 416);
 
 -- --------------------------------------------------------
 
@@ -246,8 +289,23 @@ ALTER TABLE `champion`
 --
 ALTER TABLE `champion_item`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_D34BA4A7FA7FD7EB` (`champion_id`),
-  ADD KEY `IDX_D34BA4A7126F525E` (`item_id`);
+  ADD KEY `IDX_D34BA4A7FA7FD7EB` (`champion_id`);
+
+--
+-- Index pour la table `champion_item_item`
+--
+ALTER TABLE `champion_item_item`
+  ADD PRIMARY KEY (`champion_item_id`,`item_id`),
+  ADD KEY `IDX_94EA6C2C91136FF3` (`champion_item_id`),
+  ADD KEY `IDX_94EA6C2C126F525E` (`item_id`);
+
+--
+-- Index pour la table `champion_item_position`
+--
+ALTER TABLE `champion_item_position`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_1488E8C491136FF3` (`champion_item_id`),
+  ADD KEY `IDX_1488E8C4126F525E` (`item_id`);
 
 --
 -- Index pour la table `doctrine_migration_versions`
@@ -284,7 +342,13 @@ ALTER TABLE `champion`
 -- AUTO_INCREMENT pour la table `champion_item`
 --
 ALTER TABLE `champion_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT pour la table `champion_item_position`
+--
+ALTER TABLE `champion_item_position`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `item`
@@ -306,8 +370,21 @@ ALTER TABLE `messenger_messages`
 -- Contraintes pour la table `champion_item`
 --
 ALTER TABLE `champion_item`
-  ADD CONSTRAINT `FK_D34BA4A7126F525E` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`),
   ADD CONSTRAINT `FK_D34BA4A7FA7FD7EB` FOREIGN KEY (`champion_id`) REFERENCES `champion` (`id`);
+
+--
+-- Contraintes pour la table `champion_item_item`
+--
+ALTER TABLE `champion_item_item`
+  ADD CONSTRAINT `FK_94EA6C2C126F525E` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_94EA6C2C91136FF3` FOREIGN KEY (`champion_item_id`) REFERENCES `champion_item` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `champion_item_position`
+--
+ALTER TABLE `champion_item_position`
+  ADD CONSTRAINT `FK_1488E8C4126F525E` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`),
+  ADD CONSTRAINT `FK_1488E8C491136FF3` FOREIGN KEY (`champion_item_id`) REFERENCES `champion_item` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
