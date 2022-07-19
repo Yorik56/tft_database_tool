@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Champion;
+use App\Entity\ChampionItemPosition;
 use App\Entity\ContactRequest;
 use App\Entity\Item;
 use App\Entity\User;
@@ -66,31 +67,34 @@ class Utils
     function exportJsonFromDbChampions(){
         $champions = $this->entityManager->getRepository(Champion::class)->findAll();
         $data = [];
-        foreach ($champions as $key => $value) {
+        foreach ($champions as $key => $champion) {
             // Création du champion
             $data[] = [
-                'name' => $value->getName(),
-                'origine' => $value->getOrigine(),
-                'id' => $value->getId(),
-                'cost' => $value->getCost(),
-                'image' => [$value->getName() => "require('../../assets/images/Champion/" . $value->getImage() . "')"],
+                'name' => $champion->getName(),
+                'origine' => $champion->getOrigine(),
+                'id' => $champion->getId(),
+                'cost' => $champion->getCost(),
+                'image' => [$champion->getName() => "require('../../assets/images/Champion/" . $champion->getImage() . "')"],
                 'itemsA' => [],
                 'itemsB' => [],
                 'itemsC' => []
             ];
             // Ajout des items du champion
-            foreach ($value->getChampionItems() as $key => $items) {
+            foreach ($champion->getChampionItems() as $items) {
                 if($items->getRank() == 'A'){
-                    foreach ($items->getItems() as $key => $item) {
-                        $data[count($data)-1]['itemsA'][] = $item->getId();
+                    $championItemPosition = $this->entityManager->getRepository(ChampionItemPosition::class)->findBy(['championItem' => $items], ['position' => 'ASC']);
+                    foreach ($championItemPosition as $item) {
+                        $data[count($data)-1]['itemsA'][] = $item->getItem()->getId();
                     }
                 }elseif($items->getRank() == 'B'){
-                    foreach ($items->getItems() as $key => $item) {
-                        $data[count($data)-1]['itemsB'][] = $item->getId();
+                    $championItemPosition = $this->entityManager->getRepository(ChampionItemPosition::class)->findBy(['championItem' => $items], ['position' => 'ASC']);
+                    foreach ($championItemPosition as $item) {
+                        $data[count($data)-1]['itemsB'][] = $item->getItem()->getId();
                     }
                 }elseif($items->getRank() == 'C'){
-                    foreach ($items->getItems() as $key => $item) {
-                        $data[count($data)-1]['itemsC'][] = $item->getId();
+                    $championItemPosition = $this->entityManager->getRepository(ChampionItemPosition::class)->findBy(['championItem' => $items], ['position' => 'ASC']);
+                    foreach ($championItemPosition as $item) {
+                        $data[count($data)-1]['itemsC'][] = $item->getItem()->getId();
                     }
                 }
             }

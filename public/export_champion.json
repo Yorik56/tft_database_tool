@@ -8,12 +8,11 @@
             "Ornn": require('../../assets/images/Champion/Ornn.png')
         },
         "itemsA": [
-            2,
-            3
+            55,
+            1,
+            8
         ],
-        "itemsB": [
-            25
-        ],
+        "itemsB": [],
         "itemsC": []
     },
     {
@@ -24,10 +23,7 @@
         "image": {
             "Aatrox": require('../../assets/images/Champion/Aatrox.png')
         },
-        "itemsA": [
-            1,
-            2
-        ],
+        "itemsA": [],
         "itemsB": [],
         "itemsC": []
     },
@@ -351,10 +347,7 @@
         "image": {
             "Lulu": require('../../assets/images/Champion/Lulu.png')
         },
-        "itemsA": [
-            3,
-            53
-        ],
+        "itemsA": [],
         "itemsB": [],
         "itemsC": []
     },
