@@ -79,13 +79,19 @@ class Utils
                 'itemsC' => []
             ];
             // Ajout des items du champion
-            foreach ($value->getChampionItems() as $key => $item) {
-                if($item->getRank() == 'A'){
-                    $data[count($data) - 1]['itemsA'][] = $item->getItem()->getId();
-                }elseif($item->getRank() == 'B'){
-                    $data[count($data) - 1]['itemsB'][] = $item->getItem()->getId();
-                }elseif($item->getRank() == 'C'){
-                    $data[count($data) - 1]['itemsC'][] = $item->getItem()->getId();
+            foreach ($value->getChampionItems() as $key => $items) {
+                if($items->getRank() == 'A'){
+                    foreach ($items->getItems() as $key => $item) {
+                        $data[count($data)-1]['itemsA'][] = $item->getId();
+                    }
+                }elseif($items->getRank() == 'B'){
+                    foreach ($items->getItems() as $key => $item) {
+                        $data[count($data)-1]['itemsB'][] = $item->getId();
+                    }
+                }elseif($items->getRank() == 'C'){
+                    foreach ($items->getItems() as $key => $item) {
+                        $data[count($data)-1]['itemsC'][] = $item->getId();
+                    }
                 }
             }
         }

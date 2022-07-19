@@ -3,127 +3,204 @@
 {% block title %}Hello IndexController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="example-wrapper">
+        <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/tft_database_tool/src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/tft_database_tool/templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>
-    </ul>
+        This friendly message is coming from:
+        <ul>
+            <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/tft_database_tool/src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>
+            <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/tft_database_tool/templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>
+        </ul>
 
-</div>
+    </div>
 
-<div class="container">
-    <h2>1</h2>
-    <div class="row">
-        {% for champion in champions %}
-            {% if champion.cost == 1 %}
-                <div class="col-4">
-                    <div class="card d-flex justify-content-around align-items-center w-75">
-                        <p>{{ champion.name }}</p>
-                        <img class="w-50" src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
-                        <p>Origine: {{ champion.origine }}</p>
-                        <div class="d-flex">
-                            <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
-                            <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
+    <div class="container ChampionHome">
+        <h2>1</h2>
+        <div class="row">
+            {% for champion in champions %}
+                {% if champion.cost == 1 %}
+                    <div class="col-4 my-2">
+                        <div class="card d-flex champion justify-content-around align-items-center w-75 p-2">
+                            <p>{{ champion.name }}</p>
+                            <img class="w-50" src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
+                            <p>Origine: {{ champion.origine }}</p>
+                            <div class="d-flex justify-content-center w-100">
+                                <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
+                                <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
+                            </div>
+                            <div class="itemBox">
+                                {% for items in champion.championItems %}
+                                    <p>{{ items.rank }}</p>
+                                    {% for item in items.items %}
+                                        <img class="w-25" src="{{ asset('/images/Item/'~item.image) | imagine_filter('my_thumb') }}" alt="{{ item.image }}"/>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endif %}
-        {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h2>2</h2>
+        <div class="row">
+            {% for champion in champions %}
+                {% if champion.cost == 2 %}
+                    <div class="col-4 my-2">
+                        <div class="card d-flex champion justify-content-around align-items-center w-75 p-2">
+                            <p>{{ champion.name }}</p>
+                            <img class="w-50" src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
+                            <p>Origine: {{ champion.origine }}</p>
+                            <div class="d-flex justify-content-center w-100">
+                                <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
+                                <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
+                            </div>
+                            <div class="itemBox">
+                                {% for items in champion.championItems %}
+                                    <p>{{ items.rank }}</p>
+                                    {% for item in items.items %}
+                                        <img class="w-25" src="{{ asset('/images/Item/'~item.image) | imagine_filter('my_thumb') }}" alt="{{ item.image }}"/>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h2>3</h2>
+        <div class="row BrightSkyBlue">
+            {% for champion in champions %}
+                {% if champion.cost == 3 %}
+                    <div class="col-4 my-2">
+                        <div class="card d-flex champion justify-content-around align-items-center w-75 p-2">
+                            <p>{{ champion.name }}</p>
+                            <img class="w-50" src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
+                            <p>Origine: {{ champion.origine }}</p>
+                            <div class="d-flex justify-content-center w-100">
+                                <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
+                                <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
+                            </div>
+                            <div class="itemBox">
+                                {% for items in champion.championItems %}
+                                    <p>{{ items.rank }}</p>
+                                    {% for item in items.items %}
+                                        <img class="w-25" src="{{ asset('/images/Item/'~item.image) | imagine_filter('my_thumb') }}" alt="{{ item.image }}"/>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h2>4</h2>
+        <div class="row">
+            {% for champion in champions %}
+                {% if champion.cost == 4 %}
+                    <div class="col-4 my-2">
+                        <div class="card d-flex champion justify-content-around align-items-center w-75 p-2">
+                            <p>{{ champion.name }}</p>
+                            <img class="w-50" src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
+                            <p>Origine: {{ champion.origine }}</p>
+                            <div class="d-flex justify-content-center w-100">
+                                <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
+                                <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
+                            </div>
+                            <div class="itemBox">
+                                {% for items in champion.championItems %}
+                                    <p>{{ items.rank }}</p>
+                                    {% for item in items.items %}
+                                        <img class="w-25" src="{{ asset('/images/Item/'~item.image) | imagine_filter('my_thumb') }}" alt="{{ item.image }}"/>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h2>5</h2>
+        <div class="row">
+            {% for champion in champions %}
+                {% if champion.cost == 5 %}
+                    <div class="col-4 my-2">
+                        <div class="card d-flex champion justify-content-around align-items-center w-75 p-2">
+                            <p>{{ champion.name }}</p>
+                            <img class="w-50" src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
+                            <p>Origine: {{ champion.origine }}</p>
+                            <div class="d-flex justify-content-center w-100">
+                                <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
+                                <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
+                            </div>
+                            <div class="itemBox">
+                                {% for items in champion.championItems %}
+                                    <p>{{ items.rank }}</p>
+                                    {% for item in items.items %}
+                                        <img class="w-25" src="{{ asset('/images/Item/'~item.image) | imagine_filter('my_thumb') }}" alt="{{ item.image }}"/>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h2>8</h2>
+        <div class="row">
+            {% for champion in champions %}
+                {% if champion.cost == 8 %}
+                    <div class="col-4 my-2">
+                        <div class="card d-flex champion justify-content-around align-items-center w-75 p-2">
+                            <p>{{ champion.name }}</p>
+                            <img class="w-50" src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
+                            <p>Origine: {{ champion.origine }}</p>
+                            <div class="d-flex justify-content-center w-100">
+                                <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
+                                <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
+                            </div>
+                            <div class="itemBox">
+                                {% for items in champion.championItems %}
+                                    <p>{{ items.rank }}</p>
+                                    {% for item in items.items %}
+                                        <img class="w-25" src="{{ asset('/images/Item/'~item.image) | imagine_filter('my_thumb') }}" alt="{{ item.image }}"/>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h2>10</h2>
+        <div class="row">
+            {% for champion in champions %}
+                {% if champion.cost == 10 %}
+                    <div class="col-4 my-2">
+                        <div class="card d-flex champion justify-content-around align-items-center w-75 p-2">
+                            <p>{{ champion.name }}</p>
+                            <img class="w-50" src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
+                            <p>Origine: {{ champion.origine }}</p>
+                            <div class="d-flex justify-content-center w-100">
+                                <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
+                                <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
+                            </div>
+                            <div class="itemBox">
+                                {% for items in champion.championItems %}
+                                    <p>{{ items.rank }}</p>
+                                    {% for item in items.items %}
+                                        <img class="w-25" src="{{ asset('/images/Item/'~item.image) | imagine_filter('my_thumb') }}" alt="{{ item.image }}"/>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
-    <h2>2</h2>
-    <div class="row">
-        {% for champion in champions %}
-            {% if champion.cost == 2 %}
-                <div class="col-4">
-                    <p>{{ champion.name }}</p>
-                    <img src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
-                    <p>Origine: {{ champion.origine }}</p>
-                    <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
-                    <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <h2>3</h2>
-    <div class="row">
-        {% for champion in champions %}
-            {% if champion.cost == 3 %}
-                <div class="col-4">
-                    <p>{{ champion.name }}</p>
-                    <img src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
-                    <p>Origine: {{ champion.origine }}</p>
-                    <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
-                    <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <h2>4</h2>
-    <div class="row">
-        {% for champion in champions %}
-            {% if champion.cost == 4 %}
-                <div class="col-4">
-                    <p>{{ champion.name }}</p>
-                    <img src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
-                    <p>Origine: {{ champion.origine }}</p>
-                    <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
-                    <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
-                    {% for items in champion.championItems %}
-                        <p>{{ dump(items.item.name) }}</p>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <h2>5</h2>
-    <div class="row">
-        {% for champion in champions %}
-            {% if champion.cost == 5 %}
-                <div class="col-4">
-                    <p>{{ champion.name }}</p>
-                    <img src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
-                    <p>Origine: {{ champion.origine }}</p>
-                    <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
-                    <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <h2>8</h2>
-    <div class="row">
-        {% for champion in champions %}
-            {% if champion.cost == 8 %}
-                <div class="col-4">
-                    <p>{{ champion.name }}</p>
-                    <img src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
-                    <p>Origine: {{ champion.origine }}</p>
-                    <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
-                    <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <h2>10</h2>
-    <div class="row">
-        {% for champion in champions %}
-            {% if champion.cost == 10 %}
-                <div class="col-4">
-                    <p>{{ champion.name }}</p>
-                    <img src="{{ asset('/images/Champion/'~champion.image) | imagine_filter('my_thumb') }}" alt="{{ champion.image }}"/>
-                    <p>Origine: {{ champion.origine }}</p>
-                    <a class="btn btn-success" href="{{ path('app_champion_item_new_by_champ',{'id': champion.id}) }}">Add item</a>
-                    <a class="btn btn-primary" href="{{ path('app_champion_item_index_champ',{'id': champion.id}) }}">CRUD</a>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-</div>
 {% endblock %}

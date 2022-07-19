@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ChampionItemRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ChampionItemRepository::class)]
@@ -19,8 +21,13 @@ class ChampionItem
     #[ORM\ManyToOne(inversedBy: 'championItems')]
     private ?Champion $champion = null;
 
-    #[ORM\ManyToOne(inversedBy: 'championItems')]
-    private ?Item $item = null;
+    #[ORM\ManyToMany(targetEntity: Item::class)]
+    private Collection $items;
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -51,14 +58,26 @@ class ChampionItem
         return $this;
     }
 
-    public function getItem(): ?Item
+    /**
+     * @return Collection<int, Item>
+     */
+    public function getItems(): Collection
     {
-        return $this->item;
+        return $this->items;
     }
 
-    public function setItem(?Item $item): self
+    public function addItem(Item $item): self
     {
-        $this->item = $item;
+        if (!$this->items->contains($item)) {
+            $this->items[] = $item;
+        }
+
+        return $this;
+    }
+
+    public function removeItem(Item $item): self
+    {
+        $this->items->removeElement($item);
 
         return $this;
     }

@@ -2,8 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Champion;
 use App\Entity\ChampionItem;
 use App\Entity\Item;
+
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,9 +17,18 @@ class ChampionItemType extends AbstractType
     {
         $builder
             ->add('rank')
-            ->add('champion')
-            ->add('item', Item::class, [
-                'multiple' => true
+            ->add('champion', EntityType::class, [
+                'class' => Champion::class,
+                'choice_label' => 'name',
+                'placeholder' => 'Choisissez un nom dans la liste',
+                'autocomplete' => true,
+            ])
+            ->add('items', EntityType::class, [
+                'class' => Item::class,
+                'choice_label' => 'name',
+                'placeholder' => 'Choisissez un nom dans la liste',
+                'autocomplete' => true,
+                'multiple' => true,
             ])
         ;
     }

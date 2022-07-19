@@ -13,10 +13,10 @@ import './styles/app.scss';
 import './styles/sidenav.scss';
 
 // JS
+import './bootstrap';
 const $ = require('jquery');
 global.$ = global.jQuery = $;
 
-require('bootstrap')
 
 
 
