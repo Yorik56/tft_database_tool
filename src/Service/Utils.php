@@ -73,7 +73,7 @@ class Utils
                 'origine' => $value->getOrigine(),
                 'id' => $value->getId(),
                 'cost' => $value->getCost(),
-                'image' => "require('../../assets/images/Champion/" . $value->getImage() . "')",
+                'image' => [$value->getName() => "require('../../assets/images/Champion/" . $value->getImage() . "')"],
                 'itemsA' => [],
                 'itemsB' => [],
                 'itemsC' => []
@@ -99,6 +99,8 @@ class Utils
         $projectDir = $this->appKernel->getProjectDir();
         $file = $projectDir . '/public/export_champion.json';
         $jsonData = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $jsonData = preg_replace('/"require/', 'require', $jsonData, -1);
+        $jsonData = preg_replace('/\)"/', ')', $jsonData, -1);
         file_put_contents($file, $jsonData);
     }
 }
