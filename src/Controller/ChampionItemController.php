@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\ChampionItem;
+use App\Entity\ChampionItemPosition;
 use App\Form\ChampionItemType;
 use App\Repository\ChampionItemRepository;
 use App\Repository\ChampionRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +16,14 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/champion/item')]
 class ChampionItemController extends AbstractController
 {
+
+    private $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
     #[Route('/', name: 'app_champion_item_index', methods: ['GET'])]
     public function index(ChampionItemRepository $championItemRepository): Response
     {
@@ -43,6 +53,15 @@ class ChampionItemController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if($this->checkExistence($championItemRepository, $championItem)) {
                 $championItemRepository->add($championItem, true);
+                // Création des positions pour chaque item
+                foreach ($championItem->getItems() as $index => $item) {
+                    $championItemPosition = new ChampionItemPosition();
+                    $championItemPosition->setChampionItem($championItem);
+                    $championItemPosition->setItem($item);
+                    $championItemPosition->setPosition($index);
+                    $this->em->persist($championItemPosition);
+                }
+                $this->em->flush();
                 return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
             }
             else {
@@ -66,6 +85,15 @@ class ChampionItemController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if($this->checkExistence($championItemRepository, $championItem)) {
                 $championItemRepository->add($championItem, true);
+                // Création des positions pour chaque item
+                foreach ($championItem->getItems() as $index => $item) {
+                    $championItemPosition = new ChampionItemPosition();
+                    $championItemPosition->setChampionItem($championItem);
+                    $championItemPosition->setItem($item);
+                    $championItemPosition->setPosition($index);
+                    $this->em->persist($championItemPosition);
+                }
+                $this->em->flush();
                 return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
             }
             else {
@@ -93,7 +121,24 @@ class ChampionItemController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //Suppression des positions
+            $championItemPositions = $this->em->getRepository(ChampionItemPosition::class)->findBy([
+                'championItem' => $championItem
+            ]);
+            foreach ($championItemPositions as $championItemPosition) {
+                $this->em->remove($championItemPosition);
+                $this->em->flush();
+            }
             $championItemRepository->add($championItem, true);
+            // Création des positions pour chaque item
+            foreach ($championItem->getItems() as $index => $item) {
+                $championItemPosition = new ChampionItemPosition();
+                $championItemPosition->setChampionItem($championItem);
+                $championItemPosition->setItem($item);
+                $championItemPosition->setPosition($index);
+                $this->em->persist($championItemPosition);
+            }
+            $this->em->flush();
             return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -107,6 +152,15 @@ class ChampionItemController extends AbstractController
     public function delete(Request $request, ChampionItem $championItem, ChampionItemRepository $championItemRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$championItem->getId(), $request->request->get('_token'))) {
+            //Suppression des positions
+            $championItemPositions = $this->em->getRepository(ChampionItemPosition::class)->findBy([
+                'championItem' => $championItem
+            ]);
+            foreach ($championItemPositions as $championItemPosition) {
+                $this->em->remove($championItemPosition);
+                $this->em->flush();
+            }
+
             $championItemRepository->remove($championItem, true);
         }
 
