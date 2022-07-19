@@ -41,9 +41,13 @@ class ChampionItemController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $championItemRepository->add($championItem, true);
-
-            return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
+            if($this->checkExistence($championItemRepository, $championItem)) {
+                $championItemRepository->add($championItem, true);
+                return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
+            }
+            else {
+                $form->addError(new \Symfony\Component\Form\FormError('List item '. $championItem->getRank() .' already exists for ' . $championItem->getChampion()->getName()));
+            }
         }
 
         return $this->renderForm('champion_item/new.html.twig', [
@@ -59,13 +63,15 @@ class ChampionItemController extends AbstractController
         $championItem = new ChampionItem();
         $form = $this->createForm(ChampionItemType::class, $championItem);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            $championItemRepository->add($championItem, true);
-
-            return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
+            if($this->checkExistence($championItemRepository, $championItem)) {
+                $championItemRepository->add($championItem, true);
+                return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
+            }
+            else {
+                $form->addError(new \Symfony\Component\Form\FormError('List item '. $championItem->getRank() .' already exists for ' . $championItem->getChampion()->getName()));
+            }
         }
-
         return $this->renderForm('champion_item/new.html.twig', [
             'champion_item' => $championItem,
             'form' => $form,
@@ -88,7 +94,6 @@ class ChampionItemController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $championItemRepository->add($championItem, true);
-
             return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -106,5 +111,19 @@ class ChampionItemController extends AbstractController
         }
 
         return $this->redirectToRoute('app_champion_item_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    public function checkExistence(ChampionItemRepository $championItemRepository, ChampionItem $championItem): bool
+    {
+        $itemSavedInDb = $championItemRepository->findBy([
+            'champion' => $championItem->getChampion()
+        ]);
+        $newListItem = true;
+        foreach ($itemSavedInDb as $item) {
+            if ($item->getRank() == $championItem->getRank()) {
+                $newListItem = false;
+            }
+        }
+        return $newListItem;
     }
 }
