@@ -21,6 +21,14 @@ class Item
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    #[ORM\ManyToMany(targetEntity: self::class)]
+    private Collection $build;
+
+    public function __construct()
+    {
+        $this->build = new ArrayCollection();
+    }
+
     public function __toString(): string
     {
         return $this->name ?? '';
@@ -51,6 +59,30 @@ class Item
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getBuild(): Collection
+    {
+        return $this->build;
+    }
+
+    public function addBuild(self $build): self
+    {
+        if (!$this->build->contains($build)) {
+            $this->build[] = $build;
+        }
+
+        return $this;
+    }
+
+    public function removeBuild(self $build): self
+    {
+        $this->build->removeElement($build);
 
         return $this;
     }

@@ -62,7 +62,14 @@ class Utils
                 'id' => $value->getId(),
                 'name' => $value->getName(),
                 'image' => "require('../../assets/images/Item/" . $value->getImage() . ".png')",
+                'build' => []
             ];
+            // Ajout du build de l'item
+            if($value->getBuild()){
+                foreach ($value->getBuild() as $build) {
+                    $data[count($data)-1]["build"][] = $build->getId();
+                }
+            }
         }
 
         $projectDir = $this->appKernel->getProjectDir();

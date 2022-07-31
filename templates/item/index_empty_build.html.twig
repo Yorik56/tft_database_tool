@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Item index empty builds{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Item index empty builds</h1>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Build</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>
+                                <img src="{{ asset('/images/Item/'~item.image) | imagine_filter('my_thumb') }}" alt="{{ item.image }}"/>
+                                {{ item.name }}
+                            </td>
+                            <td>
+                                {% for item_ingredient in item.build %}
+                                    <img src="{{ asset('/images/Item/'~item_ingredient.image) | imagine_filter('my_thumb') }}" alt="{{ item_ingredient.image }}"/>
+                                    {{ item_ingredient.name }}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <a href="{{ path('app_item_show', {'id': item.id}) }}">show</a>
+                                <a href="{{ path('app_item_edit', {'id': item.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
