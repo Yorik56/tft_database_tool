@@ -33,15 +33,22 @@ class Utils
      */
     function sendJsonToDb(){
         $projectDir = $this->appKernel->getProjectDir();
-        $file = file_get_contents($projectDir . '/public/Champion.json');
+        $file = file_get_contents($projectDir . '/public/fakeApiUser.json');
         $data = json_decode($file);
 
         foreach ($data as $key => $value) {
-//            $imageArray = get_object_vars($value->image);
-//            $imageName = reset($imageArray);
-            $item = new Item();
+            $imageArray = get_object_vars($value->image);
+            $imageName = reset($imageArray);
+            /*var_dump($value->name);
+            var_dump($value->origine);
+            var_dump($value->cost);
+            var_dump($imageName);
+            die();*/
+            $item = new Champion();
             $item->setName($value->name);
-            $item->setImage($value->image);
+            $item->setOrigine($value->origine);
+            $item->setCost($value->cost);
+            $item->setImage($imageName);
             $this->entityManager->persist($item);
         }
         $this->entityManager->flush();

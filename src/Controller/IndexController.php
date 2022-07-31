@@ -21,6 +21,18 @@ class IndexController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
+    #[Route('/import', name: 'import')]
+    public function import(): Response
+    {
+        $this->utils->sendJsonToDb();
+        $items = $this->entityManager->getRepository(Item::class)->findAll();
+
+        return $this->render('index/items.html.twig', [
+            'controller_name' => 'IndexController',
+            'items' => $items
+        ]);
+    }
+
     #[Route('/items', name: 'items')]
     public function items(): Response
     {
